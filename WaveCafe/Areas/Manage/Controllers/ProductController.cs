@@ -58,11 +58,6 @@ namespace WaveCafe.Areas.Manage.Controllers
         [HttpPost]
         public IActionResult Update(Product newProduct)
         {
-            if (!ModelState.IsValid)
-            {
-                return View(newProduct);
-            }    
-
             var oldCategory = _context.Products.FirstOrDefault(c => c.Id == newProduct.Id);
             if (oldCategory == null) return NotFound();
 
