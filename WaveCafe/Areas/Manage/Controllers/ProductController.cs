@@ -28,10 +28,6 @@ namespace WaveCafe.Areas.Manage.Controllers
         [HttpPost]
         public IActionResult Create(Product product)
         {
-            if(!ModelState.IsValid)
-            {
-                return View(product);
-            }
             _context.Products.Add(product);
             _context.SaveChanges();
             return RedirectToAction("Index");
